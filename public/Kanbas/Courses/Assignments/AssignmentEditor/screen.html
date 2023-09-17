@@ -1,0 +1,123 @@
+<table width = '100%'>
+    <tr>
+        <!-- Kanbas Navigation -->
+        <td valign = 'top'>
+            <ur>
+                <li><a href = "/Kanbas/Account/Profile/screen.html">Account</a></li>
+            <li><a href = "/Kanbas/Dashboard/screen.html">Dashboard</a></li>
+            <li> <a href = "/Kanbas/Courses/Home/screen.html">Courses</a></li>
+            <li> <a href = "#">Calendar</a></li>
+            <li> <a href = "#">Inbox</a></li>
+            <li> <a href = "#">History</a></li>
+            <li> <a href = "#">Studio</a></li>
+            <li> <a href = "#">Commons</a></li>
+            <li> <a href = "#">Help</a></li>
+            </ur>
+        </td>
+        <!-- Course Navigation -->
+        <td valign = 'top'>
+            <ur>
+    
+                
+                <li><a href = "/Kanbas/Courses/Home/screen.html">Home</a></li>
+                <li><a href = "/Kanbas/Courses/Assignments/screen.html">Assignement</a></li>
+                <li><a href = "/Kanbas/Courses/Grades/screen.html">Grades</a></li>   
+                <li><a href = "/Kanbas/Courses/Modules/screen.html">Modules</a></li>
+                <li><a href = '#'> Piazza</a></li> 
+                <li><a href = '#'> Zoom Meetings</a></li>    
+                <li><a href = '#'> Quizzes</a></li>    
+                <li><a href = '#'> People</a></li>    
+                <li><a href = '#'> Panopto Video</a></li>    
+                <li><a href = '#'> Discussions</a></li>    
+                <li><a href = '#'> Announcements</a></li>
+                <li><a href = '#'> Pages</a></li>    
+                <li><a href = '#'> Files</a></li>    
+                <li><a href = '#'> Rubrics</a></li>    
+                <li><a href = '#'> Outcomes</a></li>    
+                <li><a href = '#'> Collaborations</a></li>   
+                <li><a href = '#'> Syllabus</a></li>    
+                <li><a href = '/Kanbas/Courses/Settings/CourseDetail/screen.html'> Settings</a></li>   
+            </ur>
+        </td>
+        <!-- Assignment Editor -->
+        <td valign = 'top'>
+        <!-- Assignment name -->
+        <form action = '/Kanbas/Courses/Assignments/screen.html'>
+            <select>
+                <option>
+                    SpeedGrader
+                </option>
+            </select>
+            <hr>
+            <!-- Assignment name -->
+            <label for = 'assignmentName'>
+                <h3>Assignemnt Name</h3>
+            </label>
+            <input value = 'Assignement 1 - HTML' id = 'assignmentName' placeholder="Assignemnt name" />
+            <!-- Description -->
+            <h3>
+                Description
+            </h3>
+            <textarea cols = '50' rows = '5'> This is the first assignment to build</textarea>
+            <!-- Points -->
+            <h3>Points</h3>
+            <input value = "100" type = "number" max = '100' min = '0' step = '5'/>
+            <!-- Assignment Group -->
+            <h3>Assignment Group</h3>
+            <select>
+                <option>ASSIGNMENTS</option>
+            </select>
+            <!-- Grade display -->
+            <h3>Display Grade as</h3>
+            <select>
+                <option>Percentage</option>
+            </select>
+            <!-- Submission Type -->
+            <h3>
+                Submission type
+            </h3>
+            <select>
+                <option>Online</option>
+            </select>
+            <!-- Online Entry Options -->
+            <h3>Online Entry Options</h3>
+            <input type = 'checkbox' id = 'textEntry'/> 
+            <label for = 'textEntry'>Text Entry</label><br />
+            <label><input type = 'checkbox' checked/> Website URL</label> <br />
+            <input type = 'checkbox' id = 'recording'/> 
+            <label for = 'recording' >Recording</label><br />
+            <label for = 'studentAnnotation'><input type = 'checkbox' id = 'studentAnnotation'> Sudent Annotation</label><br />
+            <label for = 'FileUpload'><input type = 'checkbox' id = 'FileUpload'> File Uploads</label><br />
+            <!-- Submission Attempts -->
+            <h3>Submission Attempts</h3>
+            <select>
+                <option>Unlimited</option>
+            </select>
+            <!-- Plagiarism Review -->
+            <h3>Plagiarism Review</h3>
+            <select>
+                <option>None</option>
+            </select>
+            <!-- Group Assignment -->
+            <h3>Group Assignment</h3>
+            <input type = 'checkbox' id = 'groupAssignment'>
+            <label for = 'groupAssignment'>This is a group assignment</label>
+            <!-- Peer Reviews -->
+            <h3>Require Peer Reviews</h3>
+            <input type = 'checkbox' id = 'peerReviews'>
+            <label for = 'peerReviews'>Require Peer Reviews</label>
+            <!-- Assign -->
+            <h3>Assign to</h3>
+            <input type = 'text' placeholder="Everyone">
+            <!-- Due -->
+            <h3>Due</h3>
+            <input type = 'date' value="2023-09-01">
+            <!-- Until -->
+            <h3>Until</h3>
+            <input type = 'date' value="2023-09-01"></br>
+            <button >Cancel</button>
+            <button>Save</button>
+            </form>            
+                </td>
+            </tr>
+</table>

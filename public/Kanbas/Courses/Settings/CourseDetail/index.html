@@ -1,0 +1,84 @@
+<!-- top naviagtion bar -->
+<div>
+    <a href = '/Kanbas/Courses/Settings/CourseDetail/screen.html'>Course Detail</a>
+    <a href = '#'>Sections</a>
+    <a href = '/Kanbas/Courses/Settings/Navigation/screen.html'>Navigation</a>
+    <a href = '#'>Apps</a>
+    <a href = '#'>Feature Options</a>
+    <a href = '#'>Integrations</a>
+</div>
+<form action = '/Kanbas/Courses/Settings/CourseDetail/screen.html'>
+<h1>Course Detail</h1>
+<table width = '100%'>
+    <tr>
+        <td>Image : </td>
+        <td><input type = 'image' id = 'imageInput'/>
+        <label for="imageInput">
+            <button>Choose Image</button></label>
+        </td>
+    </tr>
+    <tr>
+        <td>Name :</td>
+        <td>CS 5610 Web Development Fall 2023</td>
+    </tr>
+    <tr>
+        <td>Course Code:</td>
+        <td>CS5610</td>
+    </tr>
+    <tr>
+        <td>Blueprint Course:</td>
+        <td>No</td>
+    </tr>
+    <tr>
+        <td>Course Template</td>
+        <td>
+            <input type = 'checkbox' id = 'courseTempleate'/>
+            <label for = 'courseTempleate'>Enable course as a Course Template</label>
+        </td>
+    </tr>
+    <tr>
+        <td>Time Zone</td>
+        <td>
+            <select>
+                <option value="America/New_York">Eastern Time (US & Canada)</option>
+                <option value="America/Chicago">Central Time (US & Canada)</option>
+                <option value="America/Denver">Mountain Time (US & Canada)</option>
+                <option value="America/Los_Angeles" selected>Pacific Time (US & Canada)</option>       
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>SIS ID:</td>
+        <td>CS5610</td>
+    </tr>
+    <tr>
+        <td>Course Template</td>
+        <td>
+            <input type = 'checkbox' id = 'courseTempleate'/>
+            <label for = 'courseTempleate'>Enable course as a Course Template</label>
+        </td>
+    </tr>
+    <tr>
+        <td>Participation : </td>
+        <td>
+            <select>
+                <option>Term</option>
+            </select>
+        </br>
+            <label for = 'startDate'>Start</label></br>
+            <input type = 'date' id = 'startDate'>
+        </br>
+            <label for = 'endDate'>End</label></br>
+            <input type = 'date' id = 'endDate'>
+        </td>
+    </tr>
+    <tr>
+        <td>Description :</td>
+        <td>
+            <textarea rows = '10' cols = '40'>
+            </textarea>
+        </td>
+    </tr>
+</table>
+<button>Update Course Details</button>
+</form>
