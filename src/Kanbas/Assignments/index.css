@@ -12,3 +12,7 @@
     background-color: #cc0000;
     color:white;
 }
+.wd-assignment .list-group-item a{
+    text-decoration: none;
+    color:black;
+}

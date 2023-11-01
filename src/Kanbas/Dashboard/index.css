@@ -6,3 +6,7 @@
     color: #cc0000;
     text-decoration: none;
 }
+.wd-dashboard .form-control{
+    display: inline;
+    width:15%;
+}

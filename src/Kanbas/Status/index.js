@@ -4,8 +4,8 @@ const Status = () => {
     return (
         <div className = 'd-none d-sm-none d-md-none d-lg-none d-xl-block p-0 courseStatus '>
         <h3>Course Status</h3>
-    <button type="button" class="btn btn-secondary btn-sm ">Unpublish</button>
-    <button type="button" class="btn green-button btn-sm ms-3">Published</button>
+    <button type="button" className="btn btn-secondary btn-sm ">Unpublish</button>
+    <button type="button" className="btn green-button btn-sm ms-3">Published</button>
     <div className="d-grid gap-2 col-1 mt-3 w-300">
         <a href="/#" className="btn btn-primary btn-300">Import existing Contents</a>
         <a href="/#" className="btn btn-primary">Import From Commons</a>

@@ -5,17 +5,16 @@ import { Link } from "react-router-dom";
 import { AiFillCheckCircle } from "react-icons/ai";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-import { updateAssignment, setAssignment } from "../Assignments/assignmentsReducer";
-import { useSelector, useDispatch } from "react-redux";
 import "./index.css";
-function AssignmentEditor() {
+import { addAssignment, setAssignment } from "../Assignments/assignmentsReducer";
+import { useSelector, useDispatch } from "react-redux";
+function AddAssignment() {
   const assignment = useSelector((state)=>state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
-
   const { courseId } = useParams();
   const navigate = useNavigate();
   const handleSave = () => {
-    dispatch(updateAssignment(assignment));
+    dispatch(addAssignment({...assignment, course: courseId}));
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
   return (
@@ -27,7 +26,8 @@ function AssignmentEditor() {
       <div className="clearfix"></div>
       <hr></hr>
       <h3>Assignment Name</h3>
-      <input defaultValue={assignment.title} className="form-control mb-2" onChange={(e)=>dispatch(setAssignment({...assignment,title:e.target.value}))}/>
+      <input  className="form-control mb-2" placeholder="New Assignment" onChange={(e)=>dispatch(setAssignment({...assignment,title:e.target.value}))}/>
+      <textarea className="form-control mb-2" placeholder="New Assignment Description" />
 
       {/* <!-- rows and cols  --> */}
       <div className="container text-center mt-3">
@@ -164,4 +164,4 @@ function AssignmentEditor() {
   );
 }
 
-export default AssignmentEditor;
+export default AddAssignment;
