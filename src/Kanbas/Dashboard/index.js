@@ -71,7 +71,7 @@ function Dashboard({ courses, course, setCourse, addCourse,
               <button onClick={() => setCourse(course)} className="btn btn-primary me-3">
               <BsPencilSquare />
               Edit </button>
-              <button onClick={() => deleteCourse(index)} className="btn btn-danger">
+              <button onClick={() => deleteCourse(course)} className="btn btn-danger">
               <AiOutlineDelete/>
               Delete</button>
             </div>

@@ -6,22 +6,31 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
-  setAssignment,
   deleteAssignment,
 } from "../Assignments/assignmentsReducer";
+import * as client from '../Assignments/clients';
 
 export default function AlertDialog({assignment_id}) {
   const [open, setOpen] = useState(false);
     const dispatch = useDispatch();
+  const handleDeleteAssignment = (assignment_id) => {
+    client.deleteAssignment(assignment_id).then((status) => {
+        setOpen(false);
+        dispatch(deleteAssignment(assignment_id));
+    });
+    };
+
+    const handleCancel = () => {
+        setOpen(false);
+        dispatch(deleteAssignment(assignment_id))
+      };
+
   const handleClickOpen = () => {
     setOpen(true);
   };
-  const handleCancel = () => {
-    setOpen(false);
-    dispatch(deleteAssignment(assignment_id))
-  };
+
 
   const handleClose = () => {
     setOpen(false);
@@ -47,7 +56,7 @@ export default function AlertDialog({assignment_id}) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCancel}>Yes</Button>
+          <Button onClick={() => handleDeleteAssignment(assignment_id)}>Yes</Button>
           <Button onClick={handleClose} autoFocus>
             No
           </Button>

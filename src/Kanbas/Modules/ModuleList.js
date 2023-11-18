@@ -7,17 +7,44 @@ import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 import "./index.css";
 import { useSelector, useDispatch } from "react-redux";
+import { findModulesForCourse,createModule,deleteModuleByModuleId,updateModuleByModuleId} from "./client";
 import {
   addModule,
   deleteModule,
   updateModule,
   setModule,
+  setModules
 } from "./modulesReducer";
 function ModuleList() {
   const { courseId } = useParams();
-  const modules = useSelector((state) => state.modulesReducer.modules).filter((module)=>module.course===courseId);
+  const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
+  const handleAddModule = () => {
+    createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+
+  const handleDeleteModule = (moduleId) => {
+    deleteModuleByModuleId(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+  const handleUpdateModule = async () => {
+    const status = await updateModuleByModuleId(module);
+    dispatch(updateModule(module));
+  };
+
+  
+
+
   // using use state way
   // const [modules, setModules] = useState(
   //   db.modules.filter((module) => module.course === courseId)
@@ -106,10 +133,10 @@ function ModuleList() {
       />
       </div>
       <div className="float-end me-5 mt-2">
-      <button onClick={()=>dispatch(addModule({...module,course:courseId}))} className="me-3 btn btn-warning btn-sm">
+      <button onClick={()=> handleAddModule()} className="me-3 btn btn-warning btn-sm">
         Add Module
       </button>
-      <button onClick={() => dispatch(updateModule(module))} className="btn btn-success btn-sm">
+      <button onClick={() => handleUpdateModule()} className="btn btn-success btn-sm">
         Update
       </button>
       </div>
@@ -129,7 +156,7 @@ function ModuleList() {
                   >
                     Edit
                   </button>
-              <button onClick={() => dispatch(deleteModule(module._id))} className="btn btn-danger btn-sm me-3">Delete</button>
+              <button onClick={() => handleDeleteModule(module._id)} className="btn btn-danger btn-sm me-3">Delete</button>
                   <AiFillCheckCircle className="checkcircle" />
                   <FaEllipsisVertical />
                 </span>

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import db from "../Database";
+import * as client from "./client";
 import { Link } from "react-router-dom";
 import { AiFillCheckCircle } from "react-icons/ai";
 import Dropdown from "react-bootstrap/Dropdown";
@@ -14,7 +14,9 @@ function AddAssignment() {
   const { courseId } = useParams();
   const navigate = useNavigate();
   const handleSave = () => {
-    dispatch(addAssignment({...assignment, course: courseId}));
+    client.createAssignments(courseId, assignment).then((assignment) => {
+      dispatch(addAssignment(assignment));
+    });
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
   return (
@@ -85,7 +87,7 @@ function AddAssignment() {
          
         </div>
         <div className="row mb-3">
-          <div claclassNamess="col"></div>
+          <div className="col"></div>
           <div className="col">
             <input type="checkbox" id="countOrNot" />
             <label for="countOrNot">

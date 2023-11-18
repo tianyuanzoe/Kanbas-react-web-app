@@ -1,27 +1,28 @@
-import React from "react";
+import React,{useEffect}from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "../Database";
 import { FaEllipsisVertical, FaFilePen } from "react-icons/fa6";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { IoEllipsisVerticalSharp } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import AlertDialog from "../AlertDialog";
 import {
-  setAssignment,
+  setAssignment,setAssignments
 } from "../Assignments/assignmentsReducer";
-
+import * as client from './clients';
 import "./index.css";
 function Assignments() {
   const { courseId } = useParams();
-  const assignments = useSelector(
-    (state) => state.assignmentsReducer.assignments
-  );
-  const assignment = useSelector(
-    (state) => state.assignmentsReducer.assignment
-  );
-  const courseAssignments = assignments.filter(
-    (assignment) => assignment.course === courseId
-  );
+  const courseAssignments = useSelector((state) => state.assignmentsReducer.assignments);
+
+  useEffect(() => {
+    client.findAssignmentsForCourse(courseId)
+      .then((assignments) => 
+        dispatch(setAssignments(assignments)
+      ));
+  }, [courseId]);
+
+
+
   const dispatch = useDispatch();
   return (
     <div className="wd-assignment">

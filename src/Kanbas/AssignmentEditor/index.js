@@ -8,6 +8,7 @@ import DropdownButton from "react-bootstrap/DropdownButton";
 import { updateAssignment, setAssignment } from "../Assignments/assignmentsReducer";
 import { useSelector, useDispatch } from "react-redux";
 import "./index.css";
+import * as client from '../Assignments/clients';
 function AssignmentEditor() {
   const assignment = useSelector((state)=>state.assignmentsReducer.assignment);
   const dispatch = useDispatch();
@@ -15,9 +16,11 @@ function AssignmentEditor() {
   const { courseId } = useParams();
   const navigate = useNavigate();
   const handleSave = () => {
+    client.updateAssignment(assignment).then((status) => {
     dispatch(updateAssignment(assignment));
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-  };
+  })};
+
   return (
     <div className="wd-assignmentEditor">
       <div className="d-flex align-items-center float-end">
