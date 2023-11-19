@@ -1,6 +1,8 @@
 import axios from "axios";
-const COURSES_URL = "http://localhost:4000/api/courses";
-const MODULES_URL = "http://localhost:4000/api/modules";
+// const COURSES_URL = "http://localhost:4000/api/courses";
+//const MODULES_URL = "http://localhost:4000/api/modules";
+const MODULES_URL = "https://kanbas-node-server-app-zoe-ed75f73c8ceb.herokuapp.com/api/modules";  
+const COURSES_URL = "https://kanbas-node-server-app-zoe-ed75f73c8ceb.herokuapp.com/api/courses";
 export const updateModuleByModuleId = async (module) => {
     const response = await axios
       .put(`${MODULES_URL}/${module._id}`, module);

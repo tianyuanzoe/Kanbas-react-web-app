@@ -11,7 +11,8 @@ import { useEffect,useState } from "react";
 import axios from "axios";
 
 function Courses() {
-  const URL = "http://localhost:4000/api/courses";
+  // const URL = "http://localhost:4000/api/courses";
+  const URL = "https://kanbas-node-server-app-zoe-ed75f73c8ceb.herokuapp.com/api/courses";
   const {  "*": module,courseId } = useParams();
   const [course, setCourse] = useState({});
   const findCourseById = async (courseId) => {
