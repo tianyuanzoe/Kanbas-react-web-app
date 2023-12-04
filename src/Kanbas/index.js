@@ -88,8 +88,7 @@ function Kanbas() {
               />
  } />
           <Route path = "Courses" element={<h1>Courses</h1>} />
-          <Route path="Courses/:courseId/*" element={<Courses courses = {courses}/>} />
-        </Routes>
+          <Route path="Courses/:courseId/*" element={<Courses courses = {courses}/>} />        </Routes>
       </div>
     </div>
     </Provider>
