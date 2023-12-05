@@ -12,7 +12,7 @@ import axios from "axios";
 
 function Courses() {
   // const URL = "http://localhost:4000/api/courses";
-  const URL = "https://kanbas-node-server-app-zoe-ed75f73c8ceb.herokuapp.com/api/courses";
+  const URL = "https://kanbas-node-server-app-zoe-a6-e1978b226346.herokuapp.com/api/courses";
   const {  "*": module,courseId } = useParams();
   const [course, setCourse] = useState({});
   const findCourseById = async (courseId) => {
